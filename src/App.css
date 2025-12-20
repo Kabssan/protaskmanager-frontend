@@ -1,0 +1,26 @@
+:root { font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; }
+.container { max-width: 1000px; margin: 0 auto; padding: 2rem; text-align: center; }
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  color: #333; /* Dunkle Schrift für gute Lesbarkeit */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-top: 5px solid #007bff; /* Blauer Akzent oben */
+}
+
+.card.done {
+  border-top: 5px solid #28a745; /* Grüner Akzent für erledigte Tasks */
+}
+.card:hover { transform: translateY(-5px); }
+
+.meta { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+.delete-btn { background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+small { color: #666; display: block; margin-top: 10px; font-size: 0.8rem; }
