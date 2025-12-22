@@ -24,3 +24,33 @@
 .meta { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
 .delete-btn { background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
 small { color: #666; display: block; margin-top: 10px; font-size: 0.8rem; }
+.add-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+  background: #f0f2f5;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.add-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 250px;
+}
+
+.add-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-btn:hover {
+  background: #0056b3;
+}
