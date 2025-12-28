@@ -51,6 +51,30 @@ function App() {
     }
   };
 
+  const toggleTaskStatus = async (task) => {
+    try {
+      const response = await fetch(`${API_URL}/${task.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...task,
+          isCompleted: !task.isCompleted 
+        }),
+      });
+  
+      if (response.ok) {
+        // Liste neu laden, um den geänderten Status zu sehen
+        fetchTasks(); 
+      } else {
+        console.error("Fehler beim Aktualisieren des Status");
+      }
+    } catch (error) {
+      console.error("Netzwerkfehler beim Update:", error);
+    }
+  };
+
   const deleteTask = async (id) => {
     await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
     fetchTasks();
@@ -83,6 +107,11 @@ function App() {
             <h3>{task.title}</h3>
             <p>{task.description}</p>
             <div className="meta">
+            <input 
+                  type="checkbox" 
+                  checked={task.isCompleted} 
+                  onChange={() => toggleTaskStatus(task)} 
+            />
               <span>{task.isCompleted ? '✅ Abgeschlossen' : '⏳ In Arbeit'}</span>
               <button onClick={() => deleteTask(task.id)} className="delete-btn">Löschen</button>
             </div>
