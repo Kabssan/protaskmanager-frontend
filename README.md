@@ -1,16 +1,49 @@
-# React + Vite
+🚀 ProTaskManager – Fullstack To-Do Application
+Ein modernes Aufgaben-Management-System, das als Fullstack-Projekt konzipiert wurde, um die Kommunikation zwischen einer React-Single-Page-Application und einer .NET 8 Web-API zu demonstrieren.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 Live Demo: https://protaskmanager-frontend.vercel.app/
 
-Currently, two official plugins are available:
+🛠 Tech Stack
+Frontend
+React (Vite): Für ein schnelles und reaktives UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+CSS3: Custom Styling für ein modernes Look-and-Feel.
 
-## React Compiler
+Vercel: Hosting und Continuous Deployment.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Backend
+ASP.NET 10 (Minimal API): Schlankes und performantes Backend.
 
-## Expanding the ESLint configuration
+Entity Framework Core: Object-Relational Mapping (ORM).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+PostgreSQL (Neon.tech): Serverless Datenbank für die persistente Speicherung.
+
+Render: Deployment der API.
+
+✨ Features & Lerninhalte
+Während der Entwicklung dieses Projekts wurden folgende Schwerpunkte gesetzt:
+
+CRUD-Operationen: Vollständige Implementierung von Erstellen, Lesen, Aktualisieren und Löschen von Aufgaben.
+
+CORS-Handling: Konfiguration von Cross-Origin Resource Sharing für die sichere Kommunikation zwischen verschiedenen Domains (Localhost/Vercel -> Render).
+
+Datenbank-Integration: Anbindung einer Cloud-PostgreSQL-Datenbank inkl. automatischer ID-Generierung und Zeitstempeln (DateTime.UtcNow).
+
+REST-Prinzipien: Strukturierung der Endpunkte nach gängigen Standards (GET, POST, PUT, DELETE).
+
+🚀 Installation & Start (Lokal)
+1. Backend
+Bash
+
+cd protaskmanager-backend
+dotnet run
+Die API ist dann unter http://localhost:5000 (oder dem in Render konfigurierten Port) erreichbar.
+
+2. Frontend
+Bash
+
+cd protaskmanager-frontend
+npm install
+npm run dev
+
+Das Frontend startet standardmäßig auf http://localhost:5173
