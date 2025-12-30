@@ -5,7 +5,10 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [newTitle, setNewTitle] = useState("");
   const [newDescription, setNewDescription] = useState("");
-  
+  const [searchTerm, setSearchTerm] = useState("");
+  const completedCount = tasks.filter(t => t.isCompleted).length;
+  const openCount = tasks.length - completedCount;
+
   const API_URL = 'https://protaskmanagerapi.onrender.com/api/tasks';
 
   const fetchTasks = () => {
@@ -51,6 +54,10 @@ function App() {
     }
   };
 
+  const filteredTasks = tasks.filter(task => 
+    task.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const toggleTaskStatus = async (task) => {
     try {
       const response = await fetch(`${API_URL}/${task.id}`, {
@@ -86,6 +93,31 @@ function App() {
 
       {/* NEU: Formular zum Hinzufügen */}
       <form onSubmit={addTask} className="add-form">
+
+      <div className="stats-container">
+      <div className="stat-card">
+        <span className="stat-number">{tasks.length}</span>
+        <span className="stat-label">Gesamt</span>
+      </div>
+      <div className="stat-card">
+        <span className="stat-number">{openCount}</span>
+        <span className="stat-label">Offen</span>
+      </div>
+      <div className="stat-card success">
+        <span className="stat-number">{completedCount}</span>
+        <span className="stat-label">Erledigt</span>
+      </div>
+    </div>
+
+      <input 
+  type="text" 
+  placeholder="Aufgaben durchsuchen..." 
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  className="search-input"
+/>
+
+         
         <input 
           type="text" 
           placeholder="Titel (z.B. Bewerbung abschicken)" 
@@ -102,7 +134,7 @@ function App() {
       </form>
 
       <div className="task-grid">
-        {tasks.map(task => (
+        {filteredTasks.map(task => (
           <div key={task.id} className={`card ${task.isCompleted ? 'done' : ''}`}>
             <h3>{task.title}</h3>
             <p>{task.description}</p>
