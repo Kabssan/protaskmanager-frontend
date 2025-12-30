@@ -9,6 +9,14 @@
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
 
+.dark {
+  --bg-color: #0f172a;      /* Sehr dunkles Blau */
+  --card-bg: #1e293b;      /* Etwas helleres Blau für Karten */
+  --text-main: #f1f5f9;    /* Fast Weiß */
+  --text-muted: #94a3b8;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-main);
@@ -17,6 +25,31 @@ body {
   display: flex;
   justify-content: center;
   padding: 40px 20px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  transition: background-color 0.3s, color 0.3s; /* Weicher Übergang */
+}
+
+.container, .card {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
 }
 
 .container { 
@@ -153,4 +186,33 @@ small {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
+}
+
+.dark .stat-card {
+  background: #334155; 
+  color: #f1f5f9;
+}
+
+.dark .stat-label {
+  color: #94a3b8; 
+}
+
+
+.dark .card p {
+  color: #cbd5e1; 
+}
+
+.dark .card.done {
+  background-color: #1e293b;
+  border-color: #334155;
+  opacity: 0.6;
+}
+
+.dark .card.done h3, 
+.dark .card.done p {
+  color: #94a3b8; 
+}
+
+.dark small {
+  color: #94a3b8;
 }
